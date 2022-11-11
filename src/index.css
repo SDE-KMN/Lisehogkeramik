@@ -6,6 +6,26 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 
@@ -14,6 +34,7 @@ h1, h2, h3 {
 
 .container-top {
   overflow: hidden;
+  box-shadow: 0 0 15px rgb(107, 107, 107);
 }
 
 .intro {
@@ -54,12 +75,18 @@ h1, h2, h3 {
 
 
 /* Midt:--------------------------------------------------------------------------------------------------------------------------------------------------- */
+#midt {
+  background-color: rgb(192, 192, 192);
+  box-shadow: 0 0 3px rgb(0, 0, 0) inset;
+  margin: 144.4px auto auto auto;
+}
+
 div.container-slideshow {
   margin: 110px;
   display: flex;
   justify-content: space-around;
   margin-left: calc(50% - 50vw);
-  width: 100vw;
+  width: 99.583vw;
 }
 
 .container-dots, .container-antal {
@@ -98,6 +125,7 @@ div.container-slideshow button {
 .midt-billede:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgb(0, 0, 0);
+  cursor: default;
 }
 
 .midt-billede {
@@ -109,20 +137,19 @@ div.container-slideshow button {
 .dots {
   cursor: pointer;
   width: 15px;
-  background-color: #bbb;
+  background-color: rgb(122, 122, 122);
   height: 15px;
   padding: 10px;
-  margin: -70px 2px;
+  margin: -57px 2px;
   border-radius: 50%;
 }
 
 .active, .dots:hover {
-  background-color: rgb(95, 95, 95);
+  background-color: rgb(85, 85, 85);
 }
 div.container-slideshow button:hover {
   background-color: rgb(241, 235, 235);
 }
-
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
@@ -131,6 +158,16 @@ div.container-slideshow button:hover {
 
 /* Bund: */
 
+#bund {
+  margin: 240px auto;
+  display: flex;
+  justify-content: center;
+}
+
+div.container-bund table {
+  display: flex;
+  justify-content: space-between;
+}
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
@@ -141,4 +178,68 @@ div.container-slideshow button:hover {
   .slide-right {
     font-size: 40px;
   }
+
+  .billeder, .btn {
+    display: none;
+  }
+
+  .dots {
+    transform: scale(1.7);
+    margin: -55px 15px;
+  }
+
+  .midt-billede {
+    display: block;
+  }
 }
+
+
+
+
+@media (min-width: 1367px) {
+  #top{
+    margin: 200px auto auto auto;
+    box-shadow: 0 0 10px black;
+  }
+  #midt {
+    margin: 342px auto auto auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*
+
+.midt-billede {
+  width: 337px;
+  height: 450px;
+  padding: 0;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  --slide-count: 6;
+}
+
+.midten {
+  width: calc(100% * var(--slide-count));
+  display: flex;
+}
+
+.slide > billede {
+  width: 100%;
+  height: 1005;
+  object-fit: cover;
+}
+
+.slide {
+  scroll-snap-align: start;
+}
+
+no clue what this is but -webkit-overflow-scrolling: touch
+*/

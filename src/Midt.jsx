@@ -1,17 +1,44 @@
-    import React, { Component } from 'react';
+    import React, { Component, useEffect, useState } from 'react';
     import './index.css';
     import left from './BillederFolder/arrows_left.png'
     import right from './BillederFolder/arrows_right.png'
     import * as bootstrap from 'bootstrap';
+    import axios from 'axios'
     window.bootstrap = bootstrap;
 
     function importAll(r) {
         return r.keys().map(r);
     }
 
+    function App() {
+        //creating IP state
+        const [ip, setIP] = useState('');
+      
+        //creating function to load ip address from the API
+        const getData = async () => {
+          const res = await axios.get('https://geolocation-db.com/json/')
+          console.log(res.data);
+          setIP(res.data.IPv4)
+        }  
+        
+        useEffect( () => {
+            //passing getData method to the lifecycle method
+            getData()
+        
+          }, [])
+        
+          return (
+            <div className="App">
+              <h2>Your IP Address is</h2>
+              <h4>{ip}</h4>
+            </div>
+          );
+        
+        }
+
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
+    
     let images = importAll(require.context('./BillederFolder/slideshow/', false, /\.(png|jpg)$/))
 
     class Midt extends React.Component {
@@ -92,24 +119,21 @@
                 this.setState({ nummer: this.state.ber.length - 1 })
             }
 
-
-            if (this.state.nummer === this.state.ber.length)                        // Tjekker hvis [nummer] er lig med længden af mængden af billeder (tjekker om det er det sidste billede i listen)
-            {
+            if (this.state.nummer === this.state.ber.length) {                        // Tjekker hvis [nummer] er lig med længden af mængden af billeder (tjekker om det er det sidste billede i listen)
                 this.setState({ billede: this.state.ber[0] });                      
                 this.setState({ billede2: this.state.ber[1] });                      
                 this.setState({ billede3: this.state.ber[2] });                      
                 this.setState({ nummer: 0 })                                        
             }
+
             if (this.state.ber.length === this.state.nummer + 1) {
                 this.setState({ billede2: this.state.ber[0]})
                 this.setState({ billede3: this.state.ber[1] })
             }
+
             if (this.state.ber.length === this.state.nummer + 2) {
                 this.setState({ billede3: this.state.ber[0]})
             }
-
-
-
 
             let i = 0;
             for (let x of this.state.list) {
@@ -126,11 +150,8 @@
                 else {
                     document.getElementById('dot' + i).classList.remove("active")
                 }
-
                 i++
-
             }
-
         }
 
         dot = (nr) => {
@@ -163,8 +184,6 @@
             }
         }
 
-
-
         dots = (tal) => {
             this.state.list = [];
             for (var i = 0; i < tal; i++) {
@@ -181,14 +200,15 @@
                     </div>
                     <div class="container-slideshow">
                         <button type="button" class="btn" onClick={this.skiftvenstre}><img alt="" src={left} /></button>
-                        <img class="billeder" name="billede" alt={this.state.nummer} id="billede" src={this.state.billede} onClick={this.skiftvenstre} />
-                        <img class="billeder midt-billede" name="billede2" alt={this.state.nummer+1} id="billede2" src={this.state.billede2} />
-                        <img class="billeder"  name="billede3"alt={this.state.nummer+2} id="billede3" src={this.state.billede3} onClick={this.skifthojre} />
+                        <div><img class="billeder" name="billede" alt={this.state.nummer} id="billede" src={this.state.billede} onClick={this.skiftvenstre} /></div>
+                        <div><img class="billeder midt-billede" name="billede2" alt={this.state.nummer+1} id="billede2" src={this.state.billede2} /></div>
+                        <div><img class="billeder"  name="billede3"alt={this.state.nummer+2} id="billede3" src={this.state.billede3} onClick={this.skifthojre} /></div>
                         <button type="button" class="btn" onClick={this.skifthojre}><img alt="" src={right} /></button>
                     </div>
                     <div class="container-dots">
                         {this.dots(this.state.ber.length)}
                     </div>
+
                 </div>
             )
         }
