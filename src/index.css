@@ -1,9 +1,15 @@
 /* Alt CSS under som er før @media er for computer skærme */
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Helvetica', 'Arial', sans-serif;
   color: #6e6e6e;
   font-weight: bold;
+}
+
+.hidden {
+  display: none
 }
 
 /* width */
@@ -34,16 +40,22 @@ h1, h2, h3 {
 
 .container-top {
   overflow: hidden;
-  box-shadow: 0 0 15px rgb(107, 107, 107);
+}
+
+.nav-link {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 118px;
+
 }
 
 .intro {
   display: block;
-  margin: 50px auto;
+  margin: 150px auto;
   width: 76.96%;
-  max-width: 100%;
   min-width: 76.96%;
-  height: 550px;
+  height: 325px;
   object-fit: cover;
   border-radius: 4px;
   opacity: 0.4;
@@ -63,11 +75,12 @@ h1, h2, h3 {
 
 @keyframes slide-right {
   0% {
-  left: -100%;
-}
-100% {
-  left: 0;
-}
+    left: -100%;
+  }
+
+  100% {
+    left: 0;
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
@@ -76,8 +89,8 @@ h1, h2, h3 {
 
 /* Midt:--------------------------------------------------------------------------------------------------------------------------------------------------- */
 #midt {
-  background-color: rgb(192, 192, 192);
-  box-shadow: 0 0 3px rgb(0, 0, 0) inset;
+  background-color: rgb(241, 241, 241);
+  box-shadow: 0 0 10px rgb(0, 0, 0);
   margin: 144.4px auto auto auto;
 }
 
@@ -89,7 +102,8 @@ div.container-slideshow {
   width: 99.583vw;
 }
 
-.container-dots, .container-antal {
+.container-dots,
+.container-antal {
   display: flex;
   justify-content: center;
   font-family: sans-serif;
@@ -121,8 +135,8 @@ div.container-slideshow button {
   transform: scale(1.02);
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
-  
-.midt-billede:hover {
+
+.midt-billede:hover{
   transform: scale(1.1);
   box-shadow: 0 0 15px rgb(0, 0, 0);
   cursor: default;
@@ -134,19 +148,42 @@ div.container-slideshow button {
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
+#slet {
+  display: flex;
+  justify-self: center;
+  transform: scale(0.3);
+  background: none;
+  border: none;
+  position: absolute;
+  margin: -490px auto auto 270px;
+  opacity: 70%;
+  transition: 0.3s;
+}
+
+#slet:hover {
+  transition: 0.3s;
+  opacity: 100%;
+}
+
+.adminhidden {
+  display: none
+}
+
 .dots {
   cursor: pointer;
   width: 15px;
-  background-color: rgb(122, 122, 122);
+  background-color: rgb(165, 165, 165);
   height: 15px;
   padding: 10px;
   margin: -57px 2px;
   border-radius: 50%;
 }
 
-.active, .dots:hover {
-  background-color: rgb(85, 85, 85);
+.active,
+.dots:hover {
+  background-color: rgb(112, 112, 112);
 }
+
 div.container-slideshow button:hover {
   background-color: rgb(241, 235, 235);
 }
@@ -155,20 +192,37 @@ div.container-slideshow button:hover {
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 
-
 /* Bund: */
 
 #bund {
-  margin: 240px auto;
+  margin: 120px auto;
+  height: 500px;
+}
+
+.container-bund {
+  height: 100%;
+}
+.container-bund h1 {
+  font-size: 60px;
   display: flex;
   justify-content: center;
 }
-
-div.container-bund table {
+.container-bund div {
+  margin: 80px auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
+.container-bund section {
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.container-bund h1, h2, h3 {
+  color: rgb(68, 68, 68);
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
@@ -179,7 +233,8 @@ div.container-bund table {
     font-size: 40px;
   }
 
-  .billeder, .btn {
+  .billeder,
+  .btn {
     display: none;
   }
 
@@ -191,22 +246,35 @@ div.container-bund table {
   .midt-billede {
     display: block;
   }
+  .container-bund h1 {
+    font-size: 35px;
+  }
+  .container-bund div {
+    margin: 20px auto;
+    flex-direction: column;
+  }
+  .trash {
+    display: none;
+  }
 }
 
 
 
-
-@media (min-width: 1367px) {
-  #top{
-    margin: 200px auto auto auto;
-    box-shadow: 0 0 10px black;
+@media (min-width: 1380px) {
+  #top {
+    margin: 50px auto auto auto;
   }
+  
   #midt {
-    margin: 342px auto auto auto;
+    margin: 150px auto auto auto;
+  }
+  .intro {
+    height: 550px;
+  }
+  .slide-right {
+    top: -420px;
   }
 }
-
-
 
 
 

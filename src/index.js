@@ -4,10 +4,8 @@ import Top from './Top.jsx'
 import Midt from './Midt.jsx'
 import Bund from './Bund.jsx'
 
-
 import * as bootstrap from 'bootstrap';
  window.bootstrap = bootstrap;
-
 
 const top = ReactDOM.createRoot(document.getElementById('top'))
 top.render(<Top/>)
