@@ -9,7 +9,7 @@ import * as Icons from "@iconscout/react-unicons";
 import * as Thin from "@iconscout/react-unicons-thinline";
 import { UitTrash } from "@iconscout/react-unicons-thinline";
 import axios from 'axios';
-import data from './static/json/img.json';
+import data from './img.json';
 
 window.bootstrap = bootstrap;
 
@@ -69,14 +69,14 @@ class Midt extends React.Component {
       document.getElementById("slet").style.display = "none";
     }
 
-    gapi.load('client:auth2', initClient);
+    /* gapi.load('client:auth2', initClient);
 
   function initClient() {
     gapi.client.init({
       apikey: this.state.API_KEY,
       clientid: this.state.CLIENT_ID
     })
-  }
+  } */
   }
 
   billede() {

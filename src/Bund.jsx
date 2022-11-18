@@ -17,7 +17,7 @@ class Bund extends React.Component {
               type="button"
               onClick={() => alert(document.getElementById("tel").innerHTML)}
               style={{
-                backgroundImage: "linear-gradient(#b8fab0 8%, #40c55c)",
+                backgroundImage: "linear-gradient(#b8fab0 1%, #40c55c)",
                 border: "0",
                 borderRadius: "15px",
               }}>
