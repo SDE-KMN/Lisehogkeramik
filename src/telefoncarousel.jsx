@@ -39,7 +39,7 @@ class Carousel extends React.Component {
       } else {
         this.state.list.push(
           <div class="carousel-item">
-            <img src={this.state.ber[x]} class="d-block w-100" />
+            <img src={this.state.ber[x]} class="d-block w-100" alt="" />
           </div>
         );
       }
@@ -74,7 +74,7 @@ class Carousel extends React.Component {
 
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src={this.state.mainbillede} class="d-block w-100" />
+              <img src={this.state.mainbillede} class="d-block w-100" alt=""/>
             </div>
 
             {this.slidesnbuttons(this.state.ber.length)}
