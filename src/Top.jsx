@@ -7,7 +7,9 @@ class Top extends React.Component {
         return (
             <div>
                 <div className="nav-link">
-                    u gei?
+                    <a href="http://172.16.3.120:3000/" rel="home">
+                        <span>LogoPlatformTing</span>
+                    </a>
                 </div>
             <div class="container-top">
                 <img src={canvas} class="intro" />

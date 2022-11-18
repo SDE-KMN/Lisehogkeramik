@@ -1,5 +1,4 @@
 /* Alt CSS under som er før @media er for computer skærme */
-
 h1,
 h2,
 h3 {
@@ -7,8 +6,10 @@ h3 {
   color: #6e6e6e;
   font-weight: bold;
 }
-
 .hidden {
+  display: none
+}
+#telefoncarousel {
   display: none
 }
 
@@ -16,43 +17,42 @@ h3 {
 ::-webkit-scrollbar {
   width: 12px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
-
-
 /* Top: --------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 .container-top {
   overflow: hidden;
 }
-
 .nav-link {
   position: absolute;
   top: 0;
   width: 100%;
   height: 118px;
-
+  z-index: 100;
 }
-
+.nav-link span {
+  position: absolute; 
+  left: 15%;
+  top: 33px;
+  color: rgb(68, 68, 68);
+  font-weight: bold;
+  font-size: 30px;
+}
 .intro {
   display: block;
-  margin: 150px auto;
+  margin: 160px auto;
   width: 76.96%;
   min-width: 76.96%;
   height: 325px;
@@ -61,7 +61,6 @@ h3 {
   opacity: 0.4;
   transform: scale(1.3);
 }
-
 .slide-right {
   animation: slide-right 1.6s ease-out forwards;
   position: relative;
@@ -72,20 +71,15 @@ h3 {
   line-height: 0;
   font-size: 5vw;
 }
-
 @keyframes slide-right {
   0% {
     left: -100%;
   }
-
   100% {
     left: 0;
   }
 }
-
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-
-
 
 /* Midt:--------------------------------------------------------------------------------------------------------------------------------------------------- */
 #midt {
@@ -93,7 +87,6 @@ h3 {
   box-shadow: 0 0 10px rgb(0, 0, 0);
   margin: 144.4px auto auto auto;
 }
-
 div.container-slideshow {
   margin: 110px;
   display: flex;
@@ -101,7 +94,6 @@ div.container-slideshow {
   margin-left: calc(50% - 50vw);
   width: 99.583vw;
 }
-
 .container-dots,
 .container-antal {
   display: flex;
@@ -111,12 +103,18 @@ div.container-slideshow {
   font-size: 20px;
   margin: 20px auto -80px auto;
 }
-
+.slideshow-knap {
+  display: flex;
+  justify-content: end;
+}
+#tilfoj {
+  position: absolute;
+  margin: 60px 5px auto auto;
+}
 div.container-slideshow button {
   height: 80px;
   align-self: center;
 }
-
 .billeder {
   width: 337px;
   height: 450px;
@@ -130,24 +128,20 @@ div.container-slideshow button {
   z-index: 1;
   cursor: pointer;
 }
-
 .billeder:hover {
   transform: scale(1.02);
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
-
-.midt-billede:hover{
+.midt-billede:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgb(0, 0, 0);
   cursor: default;
 }
-
 .midt-billede {
   transform: scale(1.08);
   z-index: 2;
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
-
 #slet {
   display: flex;
   justify-self: center;
@@ -159,16 +153,13 @@ div.container-slideshow button {
   opacity: 70%;
   transition: 0.3s;
 }
-
 #slet:hover {
   transition: 0.3s;
   opacity: 100%;
 }
-
 .adminhidden {
   display: none
 }
-
 .dots {
   cursor: pointer;
   width: 15px;
@@ -178,27 +169,20 @@ div.container-slideshow button {
   margin: -57px 2px;
   border-radius: 50%;
 }
-
 .active,
 .dots:hover {
   background-color: rgb(112, 112, 112);
 }
-
 div.container-slideshow button:hover {
   background-color: rgb(241, 235, 235);
 }
-
-
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
-
 /* Bund: */
-
 #bund {
-  margin: 120px auto;
+  margin: 190px auto;
   height: 500px;
 }
-
 .container-bund {
   height: 100%;
 }
@@ -212,37 +196,30 @@ div.container-slideshow button:hover {
   display: flex;
   justify-content: space-evenly;
 }
-
 .container-bund section {
   width: 400px;
   height: 200px;
   text-align: center;
-  padding: 12px 0;
 }
-
-.container-bund h1, h2, h3 {
-  color: rgb(68, 68, 68);
+.container-bund h3 {
+  margin: 10px auto;
 }
-
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-
 
 /* Alt inden i denne @media er for Mobil */
 @media (max-width: 480px) {
   .slide-right {
     font-size: 40px;
+    top: -430px;
   }
-
   .billeder,
   .btn {
     display: none;
   }
-
   .dots {
     transform: scale(1.7);
     margin: -55px 15px;
   }
-
   .midt-billede {
     display: block;
   }
@@ -252,19 +229,60 @@ div.container-slideshow button:hover {
   .container-bund div {
     margin: 20px auto;
     flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+  #bund {
+    margin: 150px auto;
   }
   .trash {
     display: none;
   }
+  .container-bund section {
+    width: 375px;
+  }
+  .nav-link span {
+    position: fixed;
+  }
+  #midt {
+    display: none;
+  }
+  #top {
+    margin: 16px auto auto auto;
+  }
+  #telefoncarousel {
+    display: block;
+    margin: 40px auto;
+  }
+  .intro {
+    height: 550px;
+  }
+  .nav-link span {
+    top: 25px;
+    font-size: 25px;
+  }
 }
 
-
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+  .billeder {
+    width: 224.6666666666667px;
+    height: 300px;
+  }
+  .container-slideshow button {
+    display: none
+  }
+  #midt {
+    margin: 50px auto auto auto;
+  }
+  #slet {
+    margin: -340px auto auto 158px;
+  }
+}
 
 @media (min-width: 1380px) {
   #top {
     margin: 50px auto auto auto;
   }
-  
   #midt {
     margin: 150px auto auto auto;
   }
@@ -274,40 +292,7 @@ div.container-slideshow button:hover {
   .slide-right {
     top: -420px;
   }
+  .nav-link span {
+    top: 35px;
+  }
 }
-
-
-
-
-
-
-
-/*
-
-.midt-billede {
-  width: 337px;
-  height: 450px;
-  padding: 0;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  --slide-count: 6;
-}
-
-.midten {
-  width: calc(100% * var(--slide-count));
-  display: flex;
-}
-
-.slide > billede {
-  width: 100%;
-  height: 1005;
-  object-fit: cover;
-}
-
-.slide {
-  scroll-snap-align: start;
-}
-
-no clue what this is but -webkit-overflow-scrolling: touch
-*/
