@@ -4,6 +4,8 @@ import * as bootstrap from "bootstrap";
 import { useState } from "react";
 window.bootstrap = bootstrap;
 
+console.log(Component, useState)
+
 function importAll(r) {
   return r.keys().map(r);
 }
@@ -27,7 +29,7 @@ class Carousel extends React.Component {
     this.state.list = [];
     for (var i = 1; i < tal; i++) {
       const x = i;
-      if (this.state.knap < 5) {
+      if (this.state.knap < (this.state.ber.length - 1)) {
         this.state.list.push(
           <button
             type="button"
