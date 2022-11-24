@@ -2,28 +2,33 @@ import React, { Component, useEffect, useState } from "react";
 import "./index.css";
 import left from "./BillederFolder/arrows_left.png";
 import right from "./BillederFolder/arrows_right.png";
-import skrald from "./BillederFolder/garbage_lukket.png";
-import * as bootstrap from "bootstrap";
+// import * as bootstrap from "bootstrap";
 import { format } from "react-string-format";
 import * as Icons from "@iconscout/react-unicons";
-import * as Thin from "@iconscout/react-unicons-thinline";
-import { UitTrash } from "@iconscout/react-unicons-thinline";
 import axios from 'axios';
-import data from './img.json';
-
-window.bootstrap = bootstrap;
+import * as fs from 'fs';
+import fs_react from 'fs-react';
 
 function importAll(r) {
   return r.keys().map(r);
 }
 
-function ip(x) {
-  return x;
+let hide_admin = false;
+
+async function fetch_ip() {
+  let ip;
+
+  const res = await fetch("https://api.ipify.org/?format=json")
+
+  ip = await res.json();
+
+  if (ip.ip === "80.208.66.190" || ip.ip === "62.116.202.228") {hide_admin = false}
+  console.log(hide_admin);
+  return hide_admin;
 }
 
-fetch("https://api.ipify.org/?format=json")
-  .then((results) => results.json())
-  .then((data) => ip(data.ip));
+/*
+window.bootstrap = bootstrap;
 
 const tooltipTriggerList = document.querySelectorAll(
   '[data-bs-toggle="tooltip"]'
@@ -31,6 +36,7 @@ const tooltipTriggerList = document.querySelectorAll(
 const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
 );
+*/
 
 let images = importAll(
   require.context("./BillederFolder/slideshow/", false, /\.(png|jpg)$/)
@@ -48,6 +54,7 @@ class Midt extends React.Component {
       billede2: ber[1],
       billede3: ber[2],
       list: [],
+      hide_admin: hide_admin,
       selectedFile: null,
       CLIENT_ID: "536002680283-3fv970aqqvg9g2bm855iijdfkrm97588.apps.googleusercontent.com",
       API_KEY: "AIzaSyAIkbuRlT3OmRASiHWG0mYcXgiFZjqGE2s",
@@ -59,8 +66,6 @@ class Midt extends React.Component {
   componentDidMount() {
     this.dot(0);
 
-    let hide_admin = false;
-
     if (hide_admin === true) {
       let admin = document.getElementsByName("admin");
       for (let x of admin) {
@@ -68,15 +73,6 @@ class Midt extends React.Component {
       }
       document.getElementById("slet").style.display = "none";
     }
-
-    /* gapi.load('client:auth2', initClient);
-
-  function initClient() {
-    gapi.client.init({
-      apikey: this.state.API_KEY,
-      clientid: this.state.CLIENT_ID
-    })
-  } */
   }
 
   billede() {

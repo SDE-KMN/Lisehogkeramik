@@ -7,6 +7,10 @@ class Bund extends React.Component {
   onTouchMove = (event) => {
     alert("STOP MED AT RØRER MIG");
   };
+
+  componentDidMount() {
+}
+
   render() {
     return (
       <div class="container-bund">
@@ -15,21 +19,21 @@ class Bund extends React.Component {
           <section>
             <button
               type="button"
-              onClick={() => alert(document.getElementById("tel").innerHTML)}
+              onClick={() => window.open('tel:'+document.getElementById("tel").innerHTML, "_parent")}
               style={{
-                backgroundImage: "linear-gradient(#b8fab0 1%, #40c55c)",
+                backgroundColor: "#40c55c",
                 border: "0",
                 borderRadius: "15px",
               }}>
               <Icons.UilPhone size="80" color="white"/>
             </button>
             <h3>Telefon</h3>
-            <h2 id="tel">88 88 88 88</h2>
+            <h2 id="tel">61 41 76 96</h2> 
           </section>
           <section>
             <button
               type="button"
-              onClick={() => alert(document.getElementById("fb").innerHTML)}
+              onClick={() => window.open("https://facebook.com/"+"lise.b.hoeg")}
               style={{
                 color: "white",
                 backgroundColor: "#6290BC",
@@ -40,14 +44,14 @@ class Bund extends React.Component {
               <Icons.UilFacebookF size="80"/>
             </button>
             <h3>Facebook</h3>
-            <h2 id="fb">Nima Badiei</h2>
+            <h2 style={{ fontSize: "38px" }} id="fb">Lise Høg</h2>
           </section>
           <section>
             <button
               type="button"
-              onClick={() => alert(document.getElementById("email").innerHTML)}
+              onClick={() => window.open('mailto:'+document.getElementById("email").innerHTML)}
               style={{
-                backgroundColor: "cyan",
+                backgroundColor: "#0587B3",
                 border: "0",
                 borderRadius: "15px",
               }}
@@ -55,7 +59,7 @@ class Bund extends React.Component {
               <Icons.UilEnvelope size="80" color="white"/>
             </button>
             <h3>E-Mail</h3>
-            <h2 id="email">Mail@gmail.com</h2>
+            <h2 id="email">lise.b.hoeg@gmail.com</h2>
           </section>
         </div>
       </div>

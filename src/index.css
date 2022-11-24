@@ -1,3 +1,5 @@
+
+
 /* Alt CSS under som er før @media er for computer skærme */
 h1,
 h2,
@@ -41,14 +43,32 @@ h3 {
   width: 100%;
   height: 118px;
   z-index: 100;
-}
-.nav-link span {
-  position: absolute; 
-  left: 15%;
-  top: 33px;
-  color: rgb(68, 68, 68);
-  font-weight: bold;
   font-size: 30px;
+  font-weight: bold;
+}
+.nav-link a {
+  position: absolute;
+  display: flex;
+  text-decoration:none;
+  left: 17%;
+  top: 27px;
+}
+.logotext {
+  position: relative; 
+  color: #6e6e6e;  
+  height: 45px;
+  left: 1.5%;
+}
+.logo {
+  position: relative; 
+  width: 45px;
+  height: 45px;
+  color: rgb(255, 255, 255);
+  background-color: #6e6e6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 .intro {
   display: block;
@@ -257,9 +277,14 @@ div.container-slideshow button:hover {
   .intro {
     height: 550px;
   }
-  .nav-link span {
-    top: 25px;
-    font-size: 25px;
+  .logo {
+    left: 10%;
+  }
+  .logotext {
+    left: 22%;
+  }
+  .nav-link, .nav-link a {
+    height: 95px;
   }
 }
 
@@ -292,7 +317,14 @@ div.container-slideshow button:hover {
   .slide-right {
     top: -420px;
   }
-  .nav-link span {
-    top: 35px;
+  .nav-link, .nav-link a {
+    font-size: 40px;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;  
+  }
+  .logotext {
+    height: 60px;
   }
 }

@@ -8,7 +8,8 @@ class Top extends React.Component {
             <div>
                 <div className="nav-link">
                     <a href="http://172.16.3.120:3000/" rel="home">
-                        <span>LogoPlatformTing</span>
+                        <span class="logo">Lh</span>
+                        <span class="logotext">Unika-Keramik</span>
                     </a>
                 </div>
             <div class="container-top">
