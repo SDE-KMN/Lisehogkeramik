@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Top from './Top.jsx'
+import Midt from './Midt.jsx'
+import Bund from './Bund.jsx'
+import Carousel from './telefoncarousel.jsx'
+import * as bootstrap from 'bootstrap';
+ window.bootstrap = bootstrap;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ const top = ReactDOM.createRoot(document.getElementById('top'))
+ top.render(<Top/>)
+ 
+ const midt = ReactDOM.createRoot(document.getElementById('midt'))
+ midt.render(<Midt/>)
+ 
+ const Telefoncarousel = ReactDOM.createRoot(document.getElementById('telefoncarousel'))
+ Telefoncarousel.render(<Carousel/>)
+ 
+ const bund = ReactDOM.createRoot(document.getElementById('bund'))
+ bund.render(<Bund/>)
+ 
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
